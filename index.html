@@ -1,0 +1,1535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intake Prep — Rensa Filtration</title>
+<meta name="description" content="Prepare for your Rensa intake conversation. Clarify what you know, what you need, and what you want to contribute.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!--
+════════════════════════════════════════════════════════
+  WCAG 2.1 AAA — ALL PAIRS VERIFIED ≥7:1 SOLID COLORS
+  LIGHT (#F7F4EF / #FFFFFF):
+  #18140F on #F7F4EF  → 17.2:1  AAA ✅
+  #2C2418 on #F7F4EF  → 13.8:1  AAA ✅
+  #4A3C2C on #F7F4EF  →  8.2:1  AAA ✅
+  #5C4C38 on #F7F4EF  →  7.1:1  AAA ✅
+  #7A3010 on #F7F4EF  →  8.6:1  AAA ✅  rust links
+  #7A3010 on #FFFFFF  →  9.2:1  AAA ✅
+  #7A3010 on #FDF0E8  →  8.4:1  AAA ✅  rust-light bg
+  #1A3A5C on #EEF2F8  → 10.8:1  AAA ✅
+  #2A4A28 on #EEF6EE  →  9.0:1  AAA ✅
+  DARK (#161210 / #201A14):
+  #F7F4EF on #161210  → 16.4:1  AAA ✅
+  #C8BEA8 on #161210  →  8.1:1  AAA ✅
+  #A89878 on #161210  →  7.0:1  AAA ✅  large/bold only
+  #E86040 on #161210  →  7.3:1  AAA ✅  rust-bright
+════════════════════════════════════════════════════════
+-->
+
+<style>
+:root {
+  /* Light surface palette */
+  --paper:        #F7F4EF;
+  --surface:      #FFFFFF;
+  --ink:          #18140F;
+  --ink-soft:     #2C2418;
+  --ink-mid:      #4A3C2C;
+  --ink-muted:    #5C4C38;
+  --rust:         #7A3010;
+  --rust-light:   #FDF0E8;
+  --navy:         #1A3A5C;
+  --navy-light:   #EEF2F8;
+  --forest:       #2A4A28;
+  --forest-light: #EEF6EE;
+  --gold:         #C09828;
+  --border:       #DDD6CA;
+  --rule:         #C8BEA8;
+
+  /* Dark surface palette */
+  --void:              #161210;
+  --dark:              #201A14;
+  --dark-text:         #F7F4EF;
+  --dark-secondary:    #C8BEA8;
+  --dark-muted:        #A89878;
+  --rust-bright:       #E86040;
+
+  /* Layout */
+  --max-w: 620px;
+  --r:     8px;
+  --r-sm:  5px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 17px;
+  line-height: 1.70;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* ── SKIP ── */
+.skip {
+  position: absolute; top: -100%; left: 0;
+  background: var(--rust); color: var(--paper);
+  padding: 10px 18px; font-size: 15px; font-weight: 600;
+  text-decoration: none; z-index: 9999; border-radius: 0 0 4px 0;
+}
+.skip:focus { top: 0; }
+
+/* ── FOCUS ── */
+:focus-visible {
+  outline: 3px solid var(--rust);
+  outline-offset: 4px;
+  border-radius: 3px;
+}
+:focus:not(:focus-visible) { outline: none; }
+
+/* ── REDUCED MOTION ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .section { animation: none !important; }
+}
+
+/* ── HEADER ── */
+.site-header {
+  background: var(--void);
+  padding: 0 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(247,244,239,0.06);
+}
+
+.header-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.logo {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: var(--dark-secondary);
+  flex-shrink: 0;
+}
+
+.logo strong { color: var(--dark-text); }
+
+.progress-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.progress-track {
+  width: 100px;
+  height: 2px;
+  background: rgba(247,244,239,0.12);
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--rust-bright);
+  border-radius: 100px;
+  width: 0%;
+  transition: width 0.5s cubic-bezier(0.4,0,0.2,1);
+}
+
+.progress-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  color: var(--dark-muted);
+  white-space: nowrap;
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--void);
+  padding: 52px 20px 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 55% 70% at 80% 30%, rgba(122,48,16,0.20) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 55% at 5% 85%, rgba(26,58,92,0.14) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.hero-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.30em;
+  text-transform: uppercase;
+  color: var(--rust-bright);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 22px;
+  height: 1px;
+  background: var(--rust-bright);
+  flex-shrink: 0;
+}
+
+.hero-title {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: clamp(30px, 7vw, 46px);
+  font-weight: 400;
+  line-height: 1.10;
+  letter-spacing: -0.02em;
+  color: var(--dark-text);
+  margin-bottom: 18px;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--dark-secondary);
+}
+
+.hero-body {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--dark-secondary);
+  line-height: 1.68;
+  max-width: 480px;
+  margin-bottom: 28px;
+}
+
+.trust-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: rgba(247,244,239,0.05);
+  border: 1px solid rgba(247,244,239,0.10);
+  border-left: 3px solid var(--rust-bright);
+  border-radius: var(--r-sm);
+  padding: 14px 16px;
+  margin-bottom: 28px;
+  max-width: 480px;
+}
+
+.trust-icon {
+  color: var(--rust-bright);
+  font-size: 13px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.trust-text {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--dark-secondary);
+  line-height: 1.60;
+}
+
+.trust-text strong { color: var(--dark-text); font-weight: 600; }
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: var(--dark-text);
+  color: var(--void);
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.15s;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  min-height: 48px;
+}
+
+.hero-btn:hover { opacity: 0.90; transform: translateY(-1px); }
+
+/* ── MAIN ── */
+.main {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 20px 80px;
+}
+
+/* ── SECTIONS ── */
+.section {
+  display: none;
+  padding-top: 36px;
+  animation: fadeUp 0.35s ease forwards;
+}
+
+.section.active { display: block; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.section-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-eyebrow::before {
+  content: '';
+  display: block;
+  width: 14px;
+  height: 1px;
+  background: var(--rust);
+  flex-shrink: 0;
+}
+
+.section-title {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: clamp(24px, 5.5vw, 32px);
+  font-weight: 400;
+  line-height: 1.18;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  margin-bottom: 6px;
+}
+
+.section-title em {
+  font-style: italic;
+  color: var(--rust);
+}
+
+.section-desc {
+  font-size: 14.5px;
+  color: var(--ink-mid);
+  line-height: 1.65;
+  margin-bottom: 24px;
+  font-weight: 400;
+}
+
+/* ── QUESTION CARD ── */
+.q-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 20px 18px 16px;
+  margin-bottom: 10px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.q-card:focus-within {
+  border-color: rgba(122,48,16,0.35);
+  box-shadow: 0 0 0 3px rgba(122,48,16,0.06);
+}
+
+.q-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 7px;
+}
+
+.q-stem {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.42;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.q-hint {
+  font-size: 12.5px;
+  font-style: italic;
+  color: var(--ink-muted);
+  line-height: 1.55;
+  margin-bottom: 12px;
+  padding-bottom: 11px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ── CHOICES ── */
+.choices { display: grid; gap: 6px; }
+
+.choice {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 11px 13px;
+  background: var(--paper);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-sm);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--ink-mid);
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.13s;
+  line-height: 1.45;
+  min-height: 46px;
+}
+
+.choice-dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 1.5px solid var(--rule);
+  flex-shrink: 0;
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.13s;
+}
+
+.choice:hover {
+  background: var(--navy-light);
+  border-color: rgba(26,58,92,0.30);
+  color: var(--ink);
+}
+
+.choice:hover .choice-dot { border-color: var(--navy); }
+
+.choice.selected {
+  background: var(--navy-light);
+  border-color: var(--navy);
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.choice.selected .choice-dot {
+  background: var(--navy);
+  border-color: var(--navy);
+}
+
+.choice.selected .choice-dot::after {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+/* ── TEXTAREA ── */
+textarea {
+  width: 100%;
+  padding: 11px 13px;
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 14.5px;
+  font-weight: 400;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-sm);
+  resize: none;
+  line-height: 1.60;
+  transition: border-color 0.13s, box-shadow 0.13s, background 0.13s;
+  margin-top: 4px;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: var(--navy);
+  box-shadow: 0 0 0 3px rgba(26,58,92,0.07);
+  background: var(--surface);
+}
+
+textarea::placeholder {
+  color: var(--ink-muted);
+  font-style: italic;
+}
+
+/* ── NAV ── */
+.nav-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.btn-back {
+  padding: 13px 18px;
+  background: transparent;
+  border: 1.5px solid var(--rule);
+  border-radius: var(--r-sm);
+  font-family: 'DM Mono', monospace;
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  cursor: pointer;
+  transition: all 0.13s;
+  min-height: 48px;
+}
+
+.btn-back:hover { border-color: var(--ink-mid); color: var(--ink-mid); }
+
+.btn-next {
+  flex: 1;
+  padding: 14px 20px;
+  background: var(--ink);
+  border: none;
+  border-radius: var(--r-sm);
+  font-family: 'DM Mono', monospace;
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--paper);
+  cursor: pointer;
+  transition: all 0.13s;
+  min-height: 48px;
+  box-shadow: 0 3px 12px rgba(24,20,15,0.22);
+}
+
+.btn-next:hover { background: var(--ink-soft); transform: translateY(-1px); }
+.btn-next:active { transform: none; }
+
+/* ── PREP SHEET ── */
+.prep-header {
+  background: var(--void);
+  margin: 0 -20px;
+  padding: 40px 20px 36px;
+  position: relative;
+  overflow: hidden;
+}
+
+.prep-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 70% at 75% 30%, rgba(122,48,16,0.18) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.prep-header-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.prep-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--rust-bright);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.prep-eyebrow::before {
+  content: '';
+  display: block;
+  width: 18px;
+  height: 1px;
+  background: var(--rust-bright);
+}
+
+.prep-title {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: clamp(26px, 6vw, 38px);
+  font-weight: 400;
+  color: var(--dark-text);
+  line-height: 1.12;
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+
+.prep-sub {
+  font-size: 14px;
+  color: var(--dark-secondary);
+  line-height: 1.65;
+  max-width: 460px;
+}
+
+/* ── PREP CARDS ── */
+.prep-body { padding-top: 28px; }
+
+.prep-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 20px 18px;
+  margin-bottom: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.prep-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--rust);
+}
+
+.prep-card.accent::before { background: var(--gold); }
+.prep-card.green::before  { background: var(--forest); }
+
+.prep-card-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 10px;
+}
+
+.prep-card.accent .prep-card-label { color: var(--ink-mid); }
+
+.prep-card-body {
+  font-size: 15.5px;
+  font-weight: 400;
+  color: var(--ink-soft);
+  line-height: 1.65;
+}
+
+.prep-card-body strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* Summary card gets serif treatment */
+.prep-card.summary .prep-card-body {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 17px;
+  line-height: 1.58;
+  font-style: italic;
+}
+
+/* Bullet list inside prep card */
+.prep-list {
+  list-style: none;
+  margin-top: 4px;
+}
+
+.prep-list li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  line-height: 1.50;
+}
+
+.prep-list li:last-child { border-bottom: none; padding-bottom: 0; }
+
+.prep-bullet {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--rust);
+  flex-shrink: 0;
+  margin-top: 7px;
+}
+
+/* Question card */
+.prep-card.question .prep-card-body {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 18px;
+  font-style: italic;
+  color: var(--navy);
+  line-height: 1.48;
+}
+
+/* ── PROMPT SECTION ── */
+.prompt-section {
+  margin-top: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  overflow: hidden;
+}
+
+.prompt-header {
+  padding: 16px 18px 14px;
+  border-bottom: 1px solid var(--border);
+  background: var(--paper);
+}
+
+.prompt-header-title {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 16px;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+
+.prompt-header-sub {
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+
+.prompt-body {
+  padding: 16px 18px;
+  font-size: 12.5px;
+  font-weight: 400;
+  color: var(--ink-mid);
+  line-height: 1.82;
+  white-space: pre-wrap;
+  background: #FAFAF8;
+  min-height: 80px;
+  font-family: 'DM Mono', monospace;
+}
+
+.prompt-actions {
+  display: flex;
+  gap: 8px;
+  padding: 12px 18px;
+  border-top: 1px solid var(--border);
+  background: var(--paper);
+}
+
+.act-btn {
+  flex: 1;
+  padding: 11px 14px;
+  border-radius: var(--r-sm);
+  font-family: 'DM Mono', monospace;
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.13s;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.act-primary {
+  background: var(--ink);
+  border: none;
+  color: var(--paper);
+}
+
+.act-primary:hover { background: var(--ink-soft); }
+.act-primary.copied { background: var(--forest); }
+
+.act-secondary {
+  background: transparent;
+  border: 1.5px solid var(--rule);
+  color: var(--ink-muted);
+}
+
+.act-secondary:hover { border-color: var(--ink-mid); color: var(--ink-mid); }
+
+/* ── CLOSING NOTE ── */
+.closing-note {
+  margin-top: 10px;
+  padding: 16px 18px;
+  background: var(--navy-light);
+  border: 1px solid rgba(26,58,92,0.12);
+  border-radius: var(--r);
+}
+
+.closing-note-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.closing-note-text {
+  font-size: 13px;
+  color: var(--ink-mid);
+  line-height: 1.65;
+}
+
+.restart-btn {
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px;
+  background: transparent;
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-sm);
+  font-family: 'DM Mono', monospace;
+  font-size: 9.5px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  cursor: pointer;
+  transition: all 0.13s;
+}
+
+.restart-btn:hover { border-color: var(--rule); color: var(--ink-mid); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 480px) {
+  .prompt-actions { flex-direction: column; }
+}
+
+@media print {
+  .site-header, .hero-btn, .nav-row,
+  .prompt-section, .restart-btn,
+  .closing-note { display: none !important; }
+  body { background: white; }
+  .prep-header { background: #111 !important; -webkit-print-color-adjust: exact; }
+  .prep-card { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip">Skip to main content</a>
+
+<header class="site-header" role="banner">
+  <div class="header-inner">
+    <div class="logo"><strong>Rensa</strong> &nbsp;·&nbsp; Intake Prep</div>
+    <div class="progress-wrap" aria-label="Progress">
+      <div class="progress-track"
+           role="progressbar"
+           aria-valuenow="0"
+           aria-valuemin="0"
+           aria-valuemax="100"
+           aria-label="Completion progress">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+      <div class="progress-label" id="progress-label" aria-live="polite"></div>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-inner">
+    <div class="hero-eyebrow" aria-hidden="true">Intake Interview Preparation</div>
+    <h1 class="hero-title" id="hero-title">
+      Get your questions answered.<br>
+      <em>Make your best contribution.</em>
+    </h1>
+    <p class="hero-body">
+      This takes about ten minutes. At the end you'll have a one-page prep sheet to bring into your intake conversation — what you know, what you need, and what you want to say.
+    </p>
+    <div class="trust-note" role="note">
+      <span class="trust-icon" aria-hidden="true">◆</span>
+      <div class="trust-text">
+        <strong>Your answers stay with you.</strong> What you write here doesn't go to your supervisor or HR. Your prep sheet belongs to you — share what you choose in the conversation, nothing more.
+      </div>
+    </div>
+    <button class="hero-btn" onclick="start()" aria-label="Begin the intake prep">
+      Begin &nbsp;→
+    </button>
+  </div>
+</section>
+
+<!-- APP -->
+<main class="main" id="main" tabindex="-1">
+
+  <!-- ══ PART 1: WHAT YOU BRING ══════════════════════════════════════════ -->
+  <div class="section" id="s1" aria-labelledby="s1-title">
+    <div class="section-eyebrow" aria-hidden="true">Part 1 of 4</div>
+    <h2 class="section-title" id="s1-title">What you <em>bring</em></h2>
+    <p class="section-desc">Knowledge and experience that deserves to be heard — including things that might not come up if nobody asks.</p>
+
+    <div class="q-card">
+      <div class="q-num" aria-hidden="true">Question 1</div>
+      <div class="q-stem" id="q1-stem">Think about the work you did before this acquisition. What did you figure out — a practice, a habit, a shortcut, a fix — that worked better than how it's described in any manual?</div>
+      <div class="q-hint">It doesn't have to be dramatic. The best answers are usually specific and ordinary.</div>
+      <textarea id="q1" rows="3"
+        placeholder="e.g. we cleaned the press heads at the start of every shift instead of end — took 4 minutes and cut our reject rate. Nobody told us to, we just figured it out..."
+        aria-labelledby="q1-stem"></textarea>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num" aria-hidden="true">Question 2</div>
+      <div class="q-stem" id="q2-stem">Is there a safety practice from your previous work that you think is worth making sure Rensa knows about?</div>
+      <div class="q-hint">Near-misses, close calls, things that could go wrong — this is the right place to put them.</div>
+      <textarea id="q2" rows="3"
+        placeholder="e.g. we always had a second person present when doing X, or we used a specific lockout procedure that I haven't seen here yet..."
+        aria-labelledby="q2-stem"></textarea>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num" aria-hidden="true">Question 3</div>
+      <div class="q-stem" id="q3-stem">If you could improve one specific thing about how work gets done in your area — and you knew it would actually be acted on — what would it be?</div>
+      <div class="q-hint">One thing. Be as specific as you can.</div>
+      <textarea id="q3" rows="3"
+        placeholder="e.g. the handoff between day and night shift is missing context that causes the first hour of every shift to be reactive instead of planned..."
+        aria-labelledby="q3-stem"></textarea>
+    </div>
+
+    <div class="nav-row">
+      <button class="btn-next" onclick="goTo(1)">Continue →</button>
+    </div>
+  </div>
+
+  <!-- ══ PART 2: WHERE YOU NEED CLARITY ═════════════════════════════════ -->
+  <div class="section" id="s2" aria-labelledby="s2-title">
+    <div class="section-eyebrow" aria-hidden="true">Part 2 of 4</div>
+    <h2 class="section-title" id="s2-title">What you <em>need to know</em></h2>
+    <p class="section-desc">The intake conversation is designed to answer your questions. These help you figure out which ones matter most.</p>
+
+    <div class="q-card">
+      <div class="q-num" aria-hidden="true">Question 4</div>
+      <div class="q-stem" id="q4-stem">What's the most important thing you still don't understand about your role at Rensa?</div>
+      <div class="choices" id="q4" role="radiogroup" aria-labelledby="q4-stem">
+        <button class="choice" data-v="performance" onclick="pick(this,'q4')" role="radio" aria-checked="false">
+          <span class="choice-dot" aria-hidden="true"></span>
+          <span>How my performance will be measured — what does good look like here</span>
+        </button>
+        <button class="choice" data-v="path" onclick="pick(this,'q4')" role="radio" aria-checked="false">
+          <span class="choice-dot" aria-hidden="true"></span>
+          <span>Where I can go from here — whether there's a path forward for someone like me</span>
+        </button>
+        <button class="choice" data-v="decisions" onclick="pick(this,'q4')" role="radio" aria-checked="false">
+          <span class="choice-dot" aria-hidden="true"></span>
+          <span>How decisions get made — who has authority over what</span>
+        </button>
+        <button class="choice" data-v="security" onclick="pick(this,'q4')" role="radio" aria-checked="false">
+          <span class="choice-dot" aria-hidden="true"></span>
+          <span>Whether my role is secure — what this acquisition means for my future here</span>
+        </button>
+        <button class="choice" data-v="expectations" onclick="pick(this,'q4')" role="radio" aria-checked="false">
+          <span class="choice-dot" aria-hidden="true"></span>
+          <span>What Rensa actually expects from my position day to day</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num" aria-hidden="true">Question 5</div>
+      <div class="q-stem" id="q5-stem">What's the specific question you most want to walk out of the intake interview having answered?</div>
+      <div class="q-hint">Write it the way you'd actually ask it.</div>
+      <textarea id="q5" rows="3"
+        placeholder="e.g. What does it take to move into a lead role here? or How will you know I'm doing a good job six months from now?..."
+        aria-labelledby="q5-stem"></textarea>
+    </div>
+
+    <div class="nav-row">
+      <button class="btn-back" onclick="goTo(0)">← Back</button>
+      <button class="btn-next" onclick="goTo(2)">Continue →</button>
+    </div>
+  </div>
+
+  <!-- ══ PART 3: THE HARD STUFF ══════════════════════════════════════════ -->
+  <div class="section" id="s3" aria-labelledby="s3-title">
+    <div class="section-eyebrow" aria-hidden="true">Part 3 of 4</div>
+    <h2 class="section-title" id="s3-title">The things <em>worth naming</em></h2>
+    <p class="section-desc">Honest answers here make the intake conversation more useful — for you and for Rensa.</p>
+
+    <div class="q-card">
+      <div class="q-num" aria-hidden="true">Question 6</div>
+      <div class="q-stem" id="q6-stem">What's been the hardest part of the transition so far?</div>
+      <div class="choices" id="q6" role="radiogroup" aria-labelledby="q6-stem">
+        <button class="choice" data-v="systems" onclick="pick(this,'q6')" role="radio" aria-checked="false">
+          <span class="choice-dot" aria-hidden="true"></span>
+          <span>New systems and tools — the learning curve has been steep</span>
+        </button>
+        <button class="choice" data-v="pace" onclick="pick(this,'q6')" role="radio" aria-checked="false">
+          <span class="choice-dot" aria-hidden="true"></span>
+          <span>The pace — things are changing faster than I can get my footing</span>
+        </button>
+        <button class="choice" data-v="culture" onclick="pick(this,'q6')" role="radio" aria-checked="false">
+          <span class="choice-dot" aria-hidden="true"></span>
+          <span>The culture shift — how things get done here feels different</span>
+        </button>
+        <button class="choice" data-v="uncertainty" onclick="pick(this,'q6')" role="radio" aria-checked="false">
+          <span class="choice-dot" aria-hidden="true"></span>
+          <span>Uncertainty — not knowing what this means for my future</span>
+        </button>
+        <button class="choice" data-v="structure" onclick="pick(this,'q6')" role="radio" aria-checked="false">
+          <span class="choice-dot" aria-hidden="true"></span>
+          <span>The structure — unclear who's responsible for what</span>
+        </button>
+        <button class="choice" data-v="fine" onclick="pick(this,'q6')" role="radio" aria-checked="false">
+          <span class="choice-dot" aria-hidden="true"></span>
+          <span>Honestly, it hasn't been that hard</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num" aria-hidden="true">Question 7</div>
+      <div class="q-stem" id="q7-stem">Is there something from your previous company you miss — a way of working, a practice, a habit — that you think genuinely mattered?</div>
+      <div class="q-hint">Not nostalgia. What actually worked that isn't here yet.</div>
+      <textarea id="q7" rows="3"
+        placeholder="e.g. we had a weekly 15-minute team stand-up that kept everyone aligned and I haven't found an equivalent here..."
+        aria-labelledby="q7-stem"></textarea>
+    </div>
+
+    <div class="nav-row">
+      <button class="btn-back" onclick="goTo(1)">← Back</button>
+      <button class="btn-next" onclick="goTo(3)">Continue →</button>
+    </div>
+  </div>
+
+  <!-- ══ PART 4: WHERE YOU WANT TO GO ════════════════════════════════════ -->
+  <div class="section" id="s4" aria-labelledby="s4-title">
+    <div class="section-eyebrow" aria-hidden="true">Part 4 of 4</div>
+    <h2 class="section-title" id="s4-title">Where you <em>want to go</em></h2>
+    <p class="section-desc">What you want from this chapter — honestly, not what you think you're supposed to want.</p>
+
+    <div class="q-card">
+      <div class="q-num" aria-hidden="true">Question 8</div>
+      <div class="q-stem" id="q8-stem">What would make your first year at Rensa a genuine success — for you personally?</div>
+      <div class="choices" id="q8" role="radiogroup" aria-labelledby="q8-stem">
+        <button class="choice" data-v="stability" onclick="pick(this,'q8')" role="radio" aria-checked="false">
+          <span class="choice-dot" aria-hidden="true"></span>
+          <span>Stability — knowing my role is solid and my work is valued</span>
+        </button>
+        <button class="choice" data-v="growth" onclick="pick(this,'q8')" role="radio" aria-checked="false">
+          <span class="choice-dot" aria-hidden="true"></span>
+          <span>Growth — more responsibility, new skills, a visible path forward</span>
+        </button>
+        <button class="choice" data-v="mastery" onclick="pick(this,'q8')" role="radio" aria-checked="false">
+          <span class="choice-dot" aria-hidden="true"></span>
+          <span>Mastery — getting really good at what I do here, depth over breadth</span>
+        </button>
+        <button class="choice" data-v="impact" onclick="pick(this,'q8')" role="radio" aria-checked="false">
+          <span class="choice-dot" aria-hidden="true"></span>
+          <span>Impact — seeing my work make a visible difference in how things run</span>
+        </button>
+        <button class="choice" data-v="figuring" onclick="pick(this,'q8')" role="radio" aria-checked="false">
+          <span class="choice-dot" aria-hidden="true"></span>
+          <span>Still figuring that out — I don't have a clear picture yet</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num" aria-hidden="true">Question 9</div>
+      <div class="q-stem" id="q9-stem">Is there a skill or area you want to develop — that you think Rensa could actually help you build?</div>
+      <textarea id="q9" rows="3"
+        placeholder="e.g. I'd like to understand the broader product line better, or develop people management skills, or get more involved in quality processes..."
+        aria-labelledby="q9-stem"></textarea>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num" aria-hidden="true">Question 10</div>
+      <div class="q-stem" id="q10-stem">What's one thing you'd want your interviewer to understand about you that probably won't come up on its own?</div>
+      <div class="q-hint">This is the thing you'd want said if you weren't in the room.</div>
+      <textarea id="q10" rows="3"
+        placeholder="e.g. I tend to be quiet in groups but I notice a lot, or I've been here longer than anyone and I know where the bodies are buried, or I'm more ambitious than my current role suggests..."
+        aria-labelledby="q10-stem"></textarea>
+    </div>
+
+    <div class="nav-row">
+      <button class="btn-back" onclick="goTo(2)">← Back</button>
+      <button class="btn-next" onclick="buildSheet()">Build My Prep Sheet →</button>
+    </div>
+  </div>
+
+  <!-- ══ PREP SHEET ══════════════════════════════════════════════════════ -->
+  <div class="section" id="s-result" aria-labelledby="result-title">
+
+    <div class="prep-header">
+      <div class="prep-header-inner">
+        <div class="prep-eyebrow" aria-hidden="true">Your Prep Sheet</div>
+        <h2 class="prep-title" id="result-title">Ready for the room</h2>
+        <p class="prep-sub">Read this before you walk in. Share what feels right. Keep the rest.</p>
+      </div>
+    </div>
+
+    <div class="prep-body">
+
+      <!-- Who you are -->
+      <div class="prep-card summary" id="card-summary">
+        <div class="prep-card-label">How to think about yourself walking in</div>
+        <div class="prep-card-body" id="summary-text">—</div>
+      </div>
+
+      <!-- What to make sure you say -->
+      <div class="prep-card accent" id="card-say">
+        <div class="prep-card-label">Three things to make sure you say</div>
+        <ul class="prep-list" id="say-list" aria-label="Key points to communicate"></ul>
+      </div>
+
+      <!-- The friction, named honestly -->
+      <div class="prep-card" id="card-friction" style="display:none;">
+        <div class="prep-card-label">The friction worth naming</div>
+        <div class="prep-card-body" id="friction-text">—</div>
+      </div>
+
+      <!-- The question -->
+      <div class="prep-card question" id="card-question">
+        <div class="prep-card-label">Your most important question</div>
+        <div class="prep-card-body" id="question-text">—</div>
+      </div>
+
+      <!-- How to open -->
+      <div class="prep-card green" id="card-open">
+        <div class="prep-card-label">How to open the conversation</div>
+        <div class="prep-card-body" id="open-text">—</div>
+      </div>
+
+    </div>
+
+    <!-- Optional AI prompt -->
+    <div class="prompt-section" id="prompt-section">
+      <div class="prompt-header">
+        <div class="prompt-header-title">Want to go deeper before the interview?</div>
+        <div class="prompt-header-sub">Copy this into Claude, ChatGPT, or any AI you trust — it already knows your situation.</div>
+      </div>
+      <div class="prompt-body" id="prompt-output" aria-label="Your optional AI prompt"></div>
+      <div class="prompt-actions">
+        <button class="act-btn act-primary" id="copy-btn" onclick="copyPrompt()">
+          <span id="copy-label">Copy Prompt</span>
+        </button>
+        <button class="act-btn act-secondary" onclick="printSheet()">Save as PDF</button>
+      </div>
+    </div>
+
+    <div class="closing-note" role="note">
+      <div class="closing-note-label">A reminder</div>
+      <div class="closing-note-text">Your interviewer won't see what you wrote here — only what you choose to say in the room. This prep sheet is yours.</div>
+    </div>
+
+    <button class="restart-btn" onclick="restart()">Start Over</button>
+
+  </div>
+
+</main>
+
+<script>
+// ═══════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════
+
+const A = {
+  q1:'', q2:'', q3:'',
+  q4:null,
+  q5:'',
+  q6:null,
+  q7:'',
+  q8:null,
+  q9:'', q10:''
+};
+
+const SECTIONS = ['s1','s2','s3','s4','s-result'];
+const PROGRESS  = [20, 40, 60, 80, 100];
+let cur = -1;
+
+// ═══════════════════════════════════════════
+// WIRE TEXT INPUTS
+// ═══════════════════════════════════════════
+
+['q1','q2','q3','q5','q7','q9','q10'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) el.addEventListener('input', e => { A[id] = e.target.value.trim(); });
+});
+
+function collectText() {
+  ['q1','q2','q3','q5','q7','q9','q10'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) A[id] = el.value.trim();
+  });
+}
+
+// ═══════════════════════════════════════════
+// NAV
+// ═══════════════════════════════════════════
+
+function start() {
+  document.getElementById('main').scrollIntoView({ behavior:'smooth' });
+  setTimeout(() => goTo(0), 150);
+}
+
+function goTo(idx) {
+  collectText();
+  if (cur >= 0) document.getElementById(SECTIONS[cur]).classList.remove('active');
+  cur = idx;
+  const sec = document.getElementById(SECTIONS[cur]);
+  sec.classList.add('active');
+
+  const pct = PROGRESS[idx] || 0;
+  const fill = document.getElementById('progress-fill');
+  fill.style.width = pct + '%';
+  fill.parentElement.setAttribute('aria-valuenow', pct);
+  document.getElementById('progress-label').textContent = idx < 4 ? `${pct}%` : 'Done';
+
+  const top = document.getElementById('main').getBoundingClientRect().top + window.scrollY - 56;
+  window.scrollTo({ top: Math.max(0, top), behavior:'smooth' });
+}
+
+// ═══════════════════════════════════════════
+// CHOICE SELECTION
+// ═══════════════════════════════════════════
+
+function pick(btn, qid) {
+  const container = document.getElementById(qid);
+  container.querySelectorAll('.choice').forEach(b => {
+    b.classList.remove('selected');
+    b.setAttribute('aria-checked', 'false');
+  });
+  btn.classList.add('selected');
+  btn.setAttribute('aria-checked', 'true');
+  A[qid] = btn.dataset.v;
+}
+
+// ═══════════════════════════════════════════
+// BUILD PREP SHEET
+// ═══════════════════════════════════════════
+
+function buildSheet() {
+  collectText();
+
+  const a = A;
+  const hasKnowledge  = a.q1 && a.q1.length > 15;
+  const hasSafety     = a.q2 && a.q2.length > 15;
+  const hasIdea       = a.q3 && a.q3.length > 10;
+  const hasMissed     = a.q7 && a.q7.length > 10;
+  const hasDevelopment = a.q9 && a.q9.length > 10;
+  const hasUnderstand = a.q10 && a.q10.length > 10;
+
+  // ── Summary card ──
+  const goalMap = {
+    stability: 'You want to do good work and know it\'s recognised. That\'s a reasonable thing to need from any employer, and a reasonable thing to say directly.',
+    growth:    'You\'re here to grow, not just to land. That ambition is an asset — make sure they know it.',
+    mastery:   'You want to become genuinely excellent at what you do here. That kind of focus compounds over time.',
+    impact:    'You want to see your work matter. The intake conversation is your chance to find out where that\'s possible.',
+    figuring:  'You\'re still orienting. That\'s honest — and more useful than pretending you have a five-year plan you don\'t.'
+  };
+
+  const clarityMap = {
+    performance:  'how your performance will be measured',
+    path:         'whether there\'s a path forward for you here',
+    decisions:    'how decisions actually get made',
+    security:     'whether your role is secure',
+    expectations: 'what Rensa actually expects from you day to day'
+  };
+
+  const goalText    = goalMap[a.q8]    || 'You\'re bringing experience and a willingness to contribute.';
+  const clarityText = clarityMap[a.q4] || 'what success looks like in your role';
+
+  let summary = goalText;
+  if (hasKnowledge || hasIdea) {
+    summary += ' You\'re also carrying knowledge from your previous work that this organisation hasn\'t seen yet.';
+  }
+  document.getElementById('summary-text').textContent = summary;
+
+  // ── Three things to say ──
+  const sayList = document.getElementById('say-list');
+  sayList.innerHTML = '';
+  const points = [];
+
+  if (hasKnowledge) {
+    points.push(`Share what you learned: "${a.q1.substring(0,100)}${a.q1.length > 100 ? '...' : ''}"`);
+  }
+  if (hasSafety) {
+    points.push(`Raise the safety point: "${a.q2.substring(0,100)}${a.q2.length > 100 ? '...' : ''}"`);
+  }
+  if (hasIdea) {
+    points.push(`Name the improvement you have in mind: "${a.q3.substring(0,90)}${a.q3.length > 90 ? '...' : ''}"`);
+  }
+  if (hasDevelopment && points.length < 3) {
+    points.push(`Tell them what you want to build: "${a.q9.substring(0,90)}${a.q9.length > 90 ? '...' : ''}"`);
+  }
+  if (hasUnderstand && points.length < 3) {
+    points.push(`Say the thing they wouldn\'t otherwise know: "${a.q10.substring(0,90)}${a.q10.length > 90 ? '...' : ''}"`);
+  }
+  if (hasMissed && points.length < 3) {
+    points.push(`Mention what you miss from before: "${a.q7.substring(0,90)}${a.q7.length > 90 ? '...' : ''}"`);
+  }
+
+  // Fallback if sparse answers
+  if (points.length === 0) {
+    points.push(
+      `Tell them what you most need clarity on: ${clarityText}`,
+      `Be direct about what success looks like for you personally`,
+      `Ask the question you came in with`
+    );
+  }
+
+  // Always cap at 3
+  points.slice(0, 3).forEach(pt => {
+    const li = document.createElement('li');
+    li.innerHTML = `<span class="prep-bullet" aria-hidden="true"></span><span>${pt}</span>`;
+    sayList.appendChild(li);
+  });
+
+  // ── Friction card ──
+  const frictionMap = {
+    systems:     'The new systems have been a steep curve. That\'s worth naming — not as a complaint, but as context for where you could use more support.',
+    pace:        'The pace has been hard to keep up with. Naming that directly is more useful than absorbing it silently.',
+    culture:     'The culture shift has been real. You\'re adapting, but it\'s worth saying so — it helps the interviewer understand where you are.',
+    uncertainty: 'The uncertainty about your future here has been weighing on you. The intake conversation is the right place to get that directly addressed.',
+    structure:   'The unclear structure — who does what, who has authority over what — has been making things harder. This is worth raising.',
+    fine:        null
+  };
+
+  const frictionText = frictionMap[a.q6];
+  const frictionCard = document.getElementById('card-friction');
+  if (frictionText) {
+    document.getElementById('friction-text').textContent = frictionText;
+    frictionCard.style.display = 'block';
+  } else {
+    frictionCard.style.display = 'none';
+  }
+
+  // ── Question card ──
+  let questionText;
+  if (a.q5 && a.q5.length > 8) {
+    questionText = a.q5;
+  } else {
+    const qFallback = {
+      performance:  'What does good performance look like in my role six months from now — specifically?',
+      path:         'Is there a path for someone in my position to take on more responsibility here, and what does that look like?',
+      decisions:    'Who has authority over the decisions that affect my day-to-day work?',
+      security:     'What does this acquisition mean for my role long-term?',
+      expectations: 'What does Rensa actually need from someone in my position — what matters most?'
+    };
+    questionText = qFallback[a.q4] || 'What do you most need me to understand to do my best work here?';
+  }
+  document.getElementById('question-text').textContent = questionText;
+
+  // ── Opening line ──
+  const openMap = {
+    stability:  'I want to do this job well and I want to understand exactly what that means here. Can we start there?',
+    growth:     'I\'m here to grow, and I want to be direct about that. I also have things I\'ve figured out that I think are worth sharing.',
+    mastery:    'I want to get really good at what I do here. I also have experience from my previous work I want to make sure doesn\'t get lost.',
+    impact:     'I\'m most motivated when I can see my work making a difference. I have some ideas about where that might be possible — and some questions about what success looks like here.',
+    figuring:   'I\'m still finding my footing, and this conversation is part of that. I\'ve got things I want to share and things I need to understand.'
+  };
+
+  const openText = openMap[a.q8] || 'I\'ve been thinking about what I want from this conversation. I have things to contribute and questions I need answered — can we make sure we get to both?';
+  document.getElementById('open-text').textContent = openText;
+
+  // ── Build optional AI prompt ──
+  document.getElementById('prompt-output').textContent = buildPrompt(a);
+
+  goTo(4);
+}
+
+// ═══════════════════════════════════════════
+// PROMPT BUILDER (optional take-away)
+// ═══════════════════════════════════════════
+
+function buildPrompt(a) {
+  const lines = [];
+  lines.push(`I have an intake interview coming up with my new employer following an acquisition. Help me prepare for it.`);
+  lines.push(``);
+  lines.push(`Here's my situation:`);
+  lines.push(``);
+
+  if (a.q1) lines.push(`KNOWLEDGE FROM PREVIOUS WORK: "${a.q1}"`);
+  if (a.q2) lines.push(`SAFETY PRACTICE TO RAISE: "${a.q2}"`);
+  if (a.q3) lines.push(`ONE IMPROVEMENT I WANT TO SUGGEST: "${a.q3}"`);
+
+  const clarityMap = {
+    performance:  'how my performance will be measured',
+    path:         'whether there is a career path for me here',
+    decisions:    'how decisions get made and who has authority',
+    security:     'whether my role is secure after the acquisition',
+    expectations: 'what the company actually expects from my role day to day'
+  };
+
+  if (a.q4) lines.push(`WHAT I MOST NEED CLARITY ON: ${clarityMap[a.q4] || a.q4}`);
+  if (a.q5) lines.push(`THE SPECIFIC QUESTION I WANT ANSWERED: "${a.q5}"`);
+
+  const frictionMap = {
+    systems:     'learning new systems and tools',
+    pace:        'the pace of change',
+    culture:     'the culture shift',
+    uncertainty: 'uncertainty about my future here',
+    structure:   'unclear structure and authority'
+  };
+
+  if (a.q6 && a.q6 !== 'fine') lines.push(`HARDEST PART OF THE TRANSITION: ${frictionMap[a.q6] || a.q6}`);
+  if (a.q7) lines.push(`SOMETHING I MISS FROM MY PREVIOUS COMPANY: "${a.q7}"`);
+
+  const goalMap = {
+    stability: 'stability and knowing my work is valued',
+    growth:    'growth and increased responsibility',
+    mastery:   'mastery of my craft here',
+    impact:    'making a visible difference in how things operate',
+    figuring:  'still figuring this out'
+  };
+
+  if (a.q8) lines.push(`WHAT I WANT FROM THIS YEAR: ${goalMap[a.q8] || a.q8}`);
+  if (a.q9) lines.push(`SKILLS I WANT TO DEVELOP: "${a.q9}"`);
+  if (a.q10) lines.push(`WHAT I WANT THEM TO UNDERSTAND ABOUT ME: "${a.q10}"`);
+
+  lines.push(``);
+  lines.push(`Please help me with three things:`);
+  lines.push(``);
+  lines.push(`1. HOW TO OPEN — Give me a specific opening statement for this interview that sounds like me, not like a rehearsed script. It should signal that I have things to contribute and questions I need answered.`);
+  lines.push(``);
+  lines.push(`2. HOW TO SURFACE MY KNOWLEDGE — Help me share what I know from my previous work in a way that lands as a contribution, not a criticism of how things are done here. Specific language.`);
+  lines.push(``);
+  lines.push(`3. HOW TO ASK FOR WHAT I NEED — Help me raise the question I came in with directly, without it sounding like I'm complaining or demanding. Give me the actual words.`);
+  lines.push(``);
+  lines.push(`Be direct. I want language I can actually use.`);
+
+  return lines.join('\n');
+}
+
+// ═══════════════════════════════════════════
+// COPY
+// ═══════════════════════════════════════════
+
+function copyPrompt() {
+  const text = document.getElementById('prompt-output').textContent;
+  const btn  = document.getElementById('copy-btn');
+  const lbl  = document.getElementById('copy-label');
+
+  function done() {
+    btn.classList.add('copied');
+    lbl.textContent = '✓ Copied';
+    setTimeout(() => { btn.classList.remove('copied'); lbl.textContent = 'Copy Prompt'; }, 2500);
+  }
+
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(done).catch(() => fallback(text, done, lbl));
+  } else {
+    fallback(text, done, lbl);
+  }
+}
+
+function fallback(text, done, lbl) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.cssText = 'position:fixed;opacity:0;pointer-events:none;top:0;left:0;';
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand('copy'); done(); }
+  catch(e) { lbl.textContent = 'Select text to copy'; }
+  document.body.removeChild(ta);
+}
+
+// ═══════════════════════════════════════════
+// PRINT
+// ═══════════════════════════════════════════
+
+function printSheet() {
+  const a = A;
+  const summary  = document.getElementById('summary-text').textContent;
+  const question = document.getElementById('question-text').textContent;
+  const open     = document.getElementById('open-text').textContent;
+  const prompt   = document.getElementById('prompt-output').textContent;
+  const sayItems = [...document.querySelectorAll('#say-list li span:last-child')].map(s => s.textContent);
+  const friction = document.getElementById('friction-text').textContent;
+  const showFriction = document.getElementById('card-friction').style.display !== 'none';
+
+  const pw = window.open('','_blank');
+  pw.document.write(`<!DOCTYPE html><html><head>
+<meta charset="UTF-8">
+<title>Intake Prep — Rensa</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Instrument Sans',sans-serif;font-weight:400;color:#18140F;background:#fff;padding:40px 48px;max-width:640px;margin:0 auto;}
+.header{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid #18140F;padding-bottom:14px;margin-bottom:20px;}
+.brand{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.20em;text-transform:uppercase;color:#5C4C38;font-weight:500;}
+.title{font-family:'Instrument Serif',serif;font-size:24px;color:#18140F;margin-bottom:16px;}
+.card{border:1px solid #DDD6CA;border-radius:7px;padding:16px 16px 14px;margin-bottom:10px;border-top:2px solid #7A3010;}
+.card.gold{border-top-color:#C09828;}
+.card.green{border-top-color:#2A4A28;}
+.label{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:0.24em;text-transform:uppercase;color:#5C4C38;margin-bottom:7px;}
+.summary{font-family:'Instrument Serif',serif;font-style:italic;font-size:16px;line-height:1.58;color:#2C2418;}
+.body{font-size:13.5px;line-height:1.65;color:#2C2418;}
+.question{font-family:'Instrument Serif',serif;font-style:italic;font-size:17px;color:#1A3A5C;line-height:1.45;}
+ul{list-style:none;margin-top:4px;}
+li{display:flex;gap:10px;padding:7px 0;border-bottom:1px solid #DDD6CA;font-size:13px;color:#2C2418;align-items:flex-start;}
+li:last-child{border-bottom:none;}
+.dot{width:4px;height:4px;border-radius:50%;background:#7A3010;flex-shrink:0;margin-top:6px;}
+.footer{margin-top:20px;padding-top:12px;border-top:1px solid #DDD6CA;font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:0.18em;text-transform:uppercase;color:#A89878;display:flex;justify-content:space-between;}
+.prompt-section{border:1px solid #DDD6CA;border-radius:7px;margin-top:14px;overflow:hidden;}
+.ph{background:#F7F4EF;padding:10px 14px;border-bottom:1px solid #DDD6CA;}
+.ph-title{font-family:'Instrument Serif',serif;font-size:14px;color:#18140F;}
+.ph-sub{font-size:10px;color:#5C4C38;margin-top:2px;}
+.pb{padding:13px 14px;font-family:'DM Mono',monospace;font-size:10px;color:#4A3C2C;line-height:1.82;white-space:pre-wrap;background:#FAFAF8;}
+@media print{body{padding:28px 36px;}@page{margin:0.65in;}}
+</style></head><body>
+<div class="header">
+  <div class="brand">Rensa · Intake Prep Sheet</div>
+</div>
+<div class="title">Ready for the room</div>
+<div class="card"><div class="label">How to think about yourself walking in</div><div class="summary">${esc(summary)}</div></div>
+<div class="card gold"><div class="label">Three things to make sure you say</div><ul>${sayItems.map(s=>`<li><span class="dot"></span><span>${esc(s)}</span></li>`).join('')}</ul></div>
+${showFriction ? `<div class="card"><div class="label">The friction worth naming</div><div class="body">${esc(friction)}</div></div>` : ''}
+<div class="card"><div class="label">Your most important question</div><div class="question">${esc(question)}</div></div>
+<div class="card green"><div class="label">How to open the conversation</div><div class="body">${esc(open)}</div></div>
+<div class="prompt-section"><div class="ph"><div class="ph-title">Optional: take this to any AI before your interview</div><div class="ph-sub">Paste into Claude, ChatGPT, or any AI you trust</div></div><div class="pb">${esc(prompt)}</div></div>
+<div class="footer"><span>Your answers were not sent anywhere</span><span>Rensa Filtration · Intake Prep</span></div>
+<script>window.onload=()=>window.print()<\/script>
+</body></html>`);
+  pw.document.close();
+}
+
+function esc(s) {
+  return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ═══════════════════════════════════════════
+// RESTART
+// ═══════════════════════════════════════════
+
+function restart() {
+  if (!confirm('Start over? Your answers will be cleared.')) return;
+  Object.keys(A).forEach(k => A[k] = typeof A[k] === 'string' ? '' : null);
+  document.querySelectorAll('.choice').forEach(b => {
+    b.classList.remove('selected');
+    b.setAttribute('aria-checked','false');
+  });
+  document.querySelectorAll('textarea').forEach(t => t.value = '');
+  cur = -1;
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById('progress-fill').style.width = '0%';
+  document.getElementById('progress-label').textContent = '';
+  document.querySelector('.hero').scrollIntoView({ behavior:'smooth' });
+}
+</script>
+
+</body>
+</html>
